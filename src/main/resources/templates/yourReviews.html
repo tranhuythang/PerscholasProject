@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head th:replace="htmlHead.html :: head"></head>
+
+<body>
+
+  <nav th:replace="header.html :: header"></nav>
+
+  <div class="container-fluid" style="max-width: 900px; margin: 0 auto;">
+    <div th:replace="logoutButton.html :: aside"></div>
+
+    <h3 class="text-center">YOUR reviews</h3>
+
+    <div th:if="${message != null}" class="alert alert-success alert-dismissible fade show text-center message"
+      role="alert">
+      [[${message}]]
+      <button type="button" class="close btn-sm" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <div th:if="${reviews.size() > 0}">
+      <table class="table table-hover table-responsive-xl">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Book Title</th>
+            <th scope="col">Comment</th>
+            <th scope="col">Rate</th>
+            <th scope="col">Edit/Delete?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="review : ${reviews}">
+            <th scope="row">[[${review.id}]]</th>
+            <td>[[${review.book.title}]]</td>
+            <td>[[${review.comment}]]</td>
+            <td>[[${review.rate}]]</td>
+            <td>
+              <a th:href="@{'/submit'}" title="Edit this review">Edit</a>
+              <a th:href="@{'/delete/' + ${review.id}}" th:reviewId="${review.id}" id="btnDelete" title="Delete this review" >Delete</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="" th:unless="${reviews.size() > 0}">
+      <span>No review found!</span>
+    </div>
+  </div>
+
+</body>
+
+</html>

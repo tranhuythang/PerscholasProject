@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head th:replace="htmlHead.html :: head"></head>
+
+<body>
+
+  <nav th:replace="header.html :: header"></nav>
+
+  <div class="container-fluid">
+      <div th:replace="logoutButton.html :: aside"></div>
+
+      <br>
+
+    <h3 class="text-center">EDIT/CREATE a review</h3>
+
+    <div class="my-3">
+      <form th:action="@{/save}" method="post" enctype="multipart/form-data"
+            style="max-width: 550px; margin: 0 auto">
+
+<!--        <input type="hidden" th:field="*{id}" />-->
+
+        <div class="p-3">
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label" for="comment">Comment</label>
+            <div class="col-sm-9">
+<!--              <input type="text" th:field="*{comment}" class="form-control" id="comment" />-->
+              <input type="text" class="form-control" id="comment" />
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label" for="book_id">Book ID</label>
+            <div class="col-sm-2">
+<!--              <input type="number" th:field="*{book_id}" class="form-control" id="book_id" />-->
+              <input type="number" class="form-control" id="book_id" />
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label" for="rate">Rate</label>
+            <div class="col-sm-2">
+<!--              <input type="number" step="1" th:field="*{rate}" class="form-control" id="rate" />-->
+              <input type="number" step="1" class="form-control" id="rate" />
+            </div>
+          </div>
+
+          <div class="text-center">
+            <input type="submit" value="Save" class="btn btn-primary btn-sm mr-2" />
+            <input type="button" value="Cancel" id="btnCancel" class="btn btn-secondary btn-sm" />
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">>
+<body>
+  <article>
+    <br>
+    <h4 class="text-center">all reviews</h4>
+    <table class="table table-hover table-responsive-xl">
+      <thead class="thead-light">
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">Book Title</th>
+        <th scope="col">Comment</th>
+        <th scope="col">Rate (/5)</th>
+        <th scope="col">Reviewer</th>
+        <th scope="col">Date</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="review : ${reviews}">
+        <td>[[${review.id}]]</td>
+        <td>[[${review.book.title}]]</td>
+        <td>[[${review.comment}]]</td>
+        <td>[[${review.rate}]]</td>
+        <td>[[${review.user.username}]]</td>
+        <td>[[${review.date}]]</td>
+      </tr>
+      </tbody>
+    </table>
+  </article>
+</body>
+</html>

@@ -9,8 +9,9 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface ReviewRepository extends JpaRepository<Review, Long> {
-//    @Query("select r from Review r where r.user.username = :username")
-//    List<Review> findByUsername(@Param("username") String username);
-@Query("from Review r")
-List<Review> findByUsername(String username);
+    @Query("select r from Review r where r.user.username = :username")
+    List<Review> findByUsername(@Param("username") String username);
+
+
+
 }

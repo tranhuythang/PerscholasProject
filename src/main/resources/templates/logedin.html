@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head th:replace="htmlHead.html :: head"></head>
+
+<body>
+
+  <nav th:replace="header.html :: header"></nav>
+
+  <main class="container">
+    <div class="row">
+      <div class = "col-sm-3" th:replace="logoutButton.html :: aside"></div>
+      <div class = "col-sm-9" th:insert="ALLreviews.html :: article"></div>
+    </div>
+  </main>
+
+</body>
+</html>

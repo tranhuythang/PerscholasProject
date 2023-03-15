@@ -18,14 +18,12 @@
 
 <body>
 	<!-- create navigation bar ( header) -->
-	<div th:replace="header.html :: header"></div>
+	<nav th:replace="header.html :: header"></nav>
 
-	<br>
-	<br>
-<!--	<button sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></button>-->
-<!--	<div class="container">-->
-<!--		<h1> Welcome <span sec:authentication="principal.username"> User</span> <h1>-->
-<!--	</div>-->
+	<button sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></button>
+	<div class="container">
+		<h1> Welcome <span sec:authentication="principal.username"> User</span> <h1>
+	</div>
 
 	<div>
 		<table class="table table-hover table-responsive-xl">
@@ -38,26 +36,10 @@
 				<th scope="col">rate</th>
 				<th scope="col">date</th>
 			</tr>
-			<tr>
-				<th scope="col">id</th>
-				<th scope="col">book_id</th>
-				<th scope="col">user_id</th>
-				<th scope="col">comment</th>
-				<th scope="col">rate</th>
-				<th scope="col">date</th>
-			</tr>
-			<tr>
-				<td th:text="${reviews2}"></td>
-				<td th:text="${reviews2}"></td>
-				<td th:text="${reviews2}"></td>
-				<td th:text="${reviews2}"></td>
-				<td th:text="${reviews2}"></td>
-				<td th:text="${reviews2}"></td>
-			</tr>
 			</thead>
 			<tbody>
 
-			<tr th:each="review : ${reviews1}">
+			<tr th:each="review : ${reviews}">
 				<td>[[${review.id}]]</td>
 				<td>[[${review.book.book_id}]]</td>
 				<td>[[${review.user.user_id}]]</td>
